@@ -1,10 +1,17 @@
+import { useEffect, useState } from "react";
+
 // Gesamtübersicht für die ShopProdukte
 const ShopList = () => {
-    return (
-        <section>
+    const [data, setData] = useState([]);
 
-        </section>
-    );
-}
+    useEffect(() => {
+        fetch(`https://fakestoreapi.com/products`)
+            .then((res) => res.json())
+            .then((json) => setData(json));
+    }, []);
+
+    console.log(data);
+    return <section></section>;
+};
 
 export default ShopList;
